@@ -1,14 +1,20 @@
 package br.com.alura.mudi.controller.dto;
 
+import javax.validation.constraints.NotBlank;
+
 import br.com.alura.mudi.model.Pedido;
 
 public class RequisicaoNovoPedido {
-	
+
+	@NotBlank //NotBlank.requisicaoNovoPedido.nomeProduto=não pode estar em branco
 	private String nomeProduto;
-	private String urlProduto;
-	private String urlimagem;
-	private String descricao;
 	
+	@NotBlank
+	private String urlProduto;
+	
+	@NotBlank
+	private String urlImagem;
+	private String descricao;
 	
 	public String getNomeProduto() {
 		return nomeProduto;
@@ -22,11 +28,11 @@ public class RequisicaoNovoPedido {
 	public void setUrlProduto(String urlProduto) {
 		this.urlProduto = urlProduto;
 	}
-	public String getUrlimagem() {
-		return urlimagem;
+	public String getUrlImagem() {
+		return urlImagem;
 	}
-	public void setUrlimagem(String urlimagem) {
-		this.urlimagem = urlimagem;
+	public void setUrlImagem(String urlImagem) {
+		this.urlImagem = urlImagem;
 	}
 	public String getDescricao() {
 		return descricao;
@@ -35,16 +41,13 @@ public class RequisicaoNovoPedido {
 		this.descricao = descricao;
 	}
 	public Pedido toPedido() {
-		
 		Pedido pedido = new Pedido();
 		pedido.setDescricao(descricao);
 		pedido.setNomeProduto(nomeProduto);
-		pedido.setUrlImagem(urlimagem);
+		pedido.setUrlImagem(urlImagem);
 		pedido.setUrlProduto(urlProduto);
-		
 		return pedido;
 	}
-
 	
 	
 }
