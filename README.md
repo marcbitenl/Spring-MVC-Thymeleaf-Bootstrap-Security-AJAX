@@ -33,4 +33,4 @@
 
 # Certificado
 
----------------------------
+https://cursos.alura.com.br/certificate/marcbitenl/spring-mvc-thymeleaf-bootstrap
