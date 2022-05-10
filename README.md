@@ -34,3 +34,27 @@
 # Certificado
 
 https://cursos.alura.com.br/certificate/marcbitenl/spring-mvc-thymeleaf-bootstrap
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Spring MVC: autenticação com Spring Security, API Rest e AJAX
+
+### Tópicos abordados
+
+ - Crie um sistema de login com Spring Security
+ 
+ - Aprenda a executar requisições AJAX com Axiom
+ 
+ - Monte uma tela no estilo SPA com Vue.js
+ 
+ - Monitore a aplicação com interceptadores
+ 
+ - Defina uma API REST com RestControllers
+ 
+ - Saiba como usar paginação e cache
+
+# Certificado
+
+https://cursos.alura.com.br/certificate/marcbitenl/spring-mvc-thymeleaf-bootstrap
+
+
