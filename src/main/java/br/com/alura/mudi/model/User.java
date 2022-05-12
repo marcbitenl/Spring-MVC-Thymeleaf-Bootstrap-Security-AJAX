@@ -2,6 +2,7 @@ package br.com.alura.mudi.model;
 
 import java.util.List;
 
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,7 +14,6 @@ import javax.persistence.Table;
 @Table(name="users")
 public class User {
 
-	
 	@Id
 	private String username;
 	private String password;
@@ -40,8 +40,6 @@ public class User {
 	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}
-	
-	
 	
 	
 }

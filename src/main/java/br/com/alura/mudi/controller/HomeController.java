@@ -26,21 +26,19 @@ public class HomeController {
 	public String home(Model model, Principal principal) {
 		List<Pedido> pedidos = pedidoRepository.findAllByUsuario(principal.getName());
 		model.addAttribute("pedidos", pedidos);
-		return "home"; 
+		return "home";
 	}
 	
 	@GetMapping("/{status}")
-	public String porStatus(@PathVariable ("status") String status, Model model) {
+	public String porStatus(@PathVariable("status") String status, Model model) {
 		List<Pedido> pedidos = pedidoRepository.findByStatus(StatusPedido.valueOf(status.toUpperCase()));
 		model.addAttribute("pedidos", pedidos);
 		model.addAttribute("status", status);
-		return "home"; 
+		return "home";
 	}
-	
 	
 	@ExceptionHandler(IllegalArgumentException.class)
-	public String OnError() {
+	public String onError() {
 		return "redirect:/home";
 	}
-	
 }
