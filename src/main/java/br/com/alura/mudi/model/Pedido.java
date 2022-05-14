@@ -12,9 +12,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Pedido {
-
+	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
@@ -29,70 +31,61 @@ public class Pedido {
 	private StatusPedido status;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnore
 	private User user;
-
+	
 	public String getNomeProduto() {
 		return nomeProduto;
 	}
-
 	public void setNomeProduto(String nomeProduto) {
 		this.nomeProduto = nomeProduto;
 	}
-
 	public BigDecimal getValorNegociado() {
 		return valorNegociado;
 	}
-
 	public void setValorNegociado(BigDecimal valorNegociado) {
 		this.valorNegociado = valorNegociado;
 	}
-
 	public LocalDate getDataDaEntrega() {
 		return dataDaEntrega;
 	}
-
 	public void setDataDaEntrega(LocalDate dataDaEntrega) {
 		this.dataDaEntrega = dataDaEntrega;
 	}
-
 	public String getUrlProduto() {
 		return urlProduto;
 	}
-
 	public void setUrlProduto(String urlProduto) {
 		this.urlProduto = urlProduto;
 	}
-
 	public String getUrlImagem() {
 		return urlImagem;
 	}
-
 	public void setUrlImagem(String urlImagem) {
 		this.urlImagem = urlImagem;
 	}
-
 	public String getDescricao() {
 		return descricao;
 	}
-
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public StatusPedido getStatus() {
 		return status;
 	}
-
 	public void setStatus(StatusPedido status) {
 		this.status = status;
 	}
-
 	public User getUser() {
 		return user;
 	}
-
 	public void setUser(User user) {
 		this.user = user;
 	}
-
 }
