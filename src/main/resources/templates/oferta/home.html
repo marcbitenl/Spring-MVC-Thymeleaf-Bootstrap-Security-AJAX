@@ -46,18 +46,12 @@
 				var app = new Vue({
 					el: '#ofertas',
 					data: {
-						pedidos: [
-							{
-								"id": 1,
-								"nomeProduto": "Xiaomi Redmi Note 8",
-								"valorNegociado": 200,
-								"dataDaEntrega": "2020-05-09",
-								"urlProduto": "https://www.amazon.com.br/Smartphone-Xiaomi-Redmi-Note-4RAM/dp/B07Y9XWK4M/ref=sr_1_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=823EPLQ86BWM&keywords=xiamio%2Bredmi%2Bnote%2B8&qid=1651014761&sprefix=xiamio%2Bredmi%2Bnote%2B8%2Caps%2C256&sr=8-1&ufe=app_do%3Aamzn1.fos.25548f35-0de7-44b3-b28e-0f56f3f96147&th=1",
-								"urlImagem": "https://m.media-amazon.com/images/I/51Fv-PIiDQL._AC_SL1000_.jpg",
-								"descricao": "uma descricao qualquer paraq esse pedido",
-								"status": "AGUARDANDO"
-							}
-						]
+						pedidos: []
+					},
+					mounted() {
+						axios
+							.get('http://localhost:8080/api/pedidos/aguardando')
+							.then(response => (this.pedidos = response.data))
 					}
 				});
 			}
@@ -65,6 +59,7 @@
 
 		</script>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 
 </body>
