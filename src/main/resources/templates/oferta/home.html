@@ -4,47 +4,69 @@
 
 </head>
 
-<body>
+<body onLoad="onLoad()">
 	<div th:replace="~{base :: logo}"> </div>
 
-	<div class="container">
-		<div th:replace="~{base :: titulo('Últimos Pedidos')}"> </div>
+	<div class="container" id="ofertas">
+		<div th:replace="~{base :: titulo('Faça sua Oferta')}"> </div>
 
-		<div class="card mb-3" th:each="pedido : ${pedidos}">
-				<div class="card-header alert-dark" th:text="${pedido.nomeProduto}">Nome do produto</div>
+		<div class="card mb-3" v-for="pedido in pedidos">
+			<div class="card-header alert-dark">{{pedido.nomeProduto}}</div>
 
-				<div class="card-body">
+			<div class="card-body">
 
-					<div class="row">
+				<div class="row">
 
-						<div class="col-12 col-sm-8 mb-3">
+					<div class="col-12 col-sm-8 mb-3">
 
-							<div class="row">
-								<div class="col-md-5">Valor: <span th:if="${pedido.valorNegociado} != null" th:text="${'R$ ' + #numbers.formatDecimal(pedido.valorNegociado,3,'POINT',2,'COMMA')}">200,99</span>
-								</div>
-								<div class="col-md-7">Data da entrega: <span th:text="${#temporals.format(pedido.dataDaEntrega, 'dd/MM/yyyy')}">10/12/2020</span></div>
-							</div>
-
-							<div>Produto </div>
-							<div> <input class="form-control" th:value="${pedido.urlProduto}" value="url do produto" />
-							</div>
-
-							<div>Descricação </div>
-							<div>
-								<textarea class="form-control" th:text="${pedido.descricao}">descrição do pedido
-								</textarea>
-							</div>
+						<div class="row">
+							<div class="col-md-5">Valor: <input /> </div>
+							<div class="col-md-7">Data da entrega: <input /></div>
 						</div>
-						<div class="col-12 col-sm-4 ">
-							<div>
-								<img class="img-thumbnail" th:src="${pedido.urlImagem}" src="" />
-							</div>
+
+						<div>Produto </div>
+						<div> <a v-bind:href="pedido.urlProduto">{{pedido.nomeProduto}}</a></div>
+
+						<div>Descricação </div>
+						<div>
+							<textarea class="form-control">{{pedido.descricao}}</textarea>
+						</div>
+					</div>
+					<div class="col-12 col-sm-4 ">
+						<div>
+							<img class="img-thumbnail" v-bind:src="pedido.urlImagem" />
 						</div>
 					</div>
 				</div>
+			</div>
 		</div>
+
+		<script>
+			function onLoad() {
+				var app = new Vue({
+					el: '#ofertas',
+					data: {
+						pedidos: [
+							{
+								"id": 1,
+								"nomeProduto": "Xiaomi Redmi Note 8",
+								"valorNegociado": 200,
+								"dataDaEntrega": "2020-05-09",
+								"urlProduto": "https://www.amazon.com.br/Smartphone-Xiaomi-Redmi-Note-4RAM/dp/B07Y9XWK4M/ref=sr_1_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=823EPLQ86BWM&keywords=xiamio%2Bredmi%2Bnote%2B8&qid=1651014761&sprefix=xiamio%2Bredmi%2Bnote%2B8%2Caps%2C256&sr=8-1&ufe=app_do%3Aamzn1.fos.25548f35-0de7-44b3-b28e-0f56f3f96147&th=1",
+								"urlImagem": "https://m.media-amazon.com/images/I/51Fv-PIiDQL._AC_SL1000_.jpg",
+								"descricao": "uma descricao qualquer paraq esse pedido",
+								"status": "AGUARDANDO"
+							}
+						]
+					}
+				});
+			}
+
+
+		</script>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+
 </body>
-
-
 
 </html>
