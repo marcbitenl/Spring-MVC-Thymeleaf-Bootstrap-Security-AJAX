@@ -58,6 +58,6 @@ https://cursos.alura.com.br/certificate/marcbitenl/spring-mvc-thymeleaf-bootstra
 
 # Certificado
 
-https://cursos.alura.com.br/certificate/marcbitenl/spring-mvc-thymeleaf-bootstrap
+[https://cursos.alura.com.br/certificate/marcbitenl/spring-mvc-thymeleaf-bootstrap](https://cursos.alura.com.br/certificate/marcbitenl/spring-mvc-security-rest-vuejs-ajax)
 
 
